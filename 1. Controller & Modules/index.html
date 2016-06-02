@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myapp">
   <head>
     <meta charset="utf-8">
     <title>AngularJS</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
   </head>
-  <body ng-app="myapp">
-    <div class="container">
+  <body>
+<div ng-controller="testSingleton as demo1">
+    <h3>text From singletonService is : [ {{ showText }} ]</h3>
+    <input type="text" ng-model="updateText">
+    <button ng-click="sendText(updateText)">Set</button>
+    <button ng-click="receiveText()">Get</button>
+</div>
+<div ng-controller="testSingleton as demo2">
+    <h3>text From singletonService is : [ {{ showText }} ]</h3>
+    <input type="text" ng-model="updateText">
+    <button ng-click="sendText(updateText)">Set</button>
+    <button ng-click="receiveText()">Get</button>
+</div>
+    <!-- <div class="container">
       <div class="col-sm-push-3 col-md-7">
       <form class="form-horizontal">
       <div class="form-group">
@@ -22,7 +34,9 @@
       </div>
     </form>
   </div>
-    </div>
+    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/ContactContrl.js"></script>
   </body>
 </html>

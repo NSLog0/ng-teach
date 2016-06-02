@@ -1,14 +1,28 @@
 (function () {
   'use strict';
 
-  angular
-    .module('myapp')
-    .controller('ContactContrl', ContactContrl);
+  angular.module('myapp')
+    .factory('singletonService', function () {
+      var text = 'First Text';
+      return {
+        setText: function (text) {
+           this.text = text;
+        },
+        getText: function () {
+          return this.text;
+        }
+       };
+    })
+    .controller('testSingleton', function ($scope, singletonService) {
+        $scope.showText = singletonService.getText();
+        $scope.sendText = function (text) {
+            singletonService.setText(text);
+            $scope.showText = singletonService.getText();
+        };
 
-  ContactContrl.$inject = ['$scope'];
-
-  function ContactContrl($scope) {
-    $scope.user = {};
-  }
+        $scope.receiveText = function () {
+            $scope.showText = singletonService.getText();
+        }
+    });
 
 }());

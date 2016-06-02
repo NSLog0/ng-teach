@@ -1,1 +1,6 @@
-// var app = angular.module('myapp',[]);
+(function () {
+  'use strict';
+
+angular.module('myapp',[]);
+
+}());
